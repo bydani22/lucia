@@ -1,72 +1,143 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Documento Premium</title>
+<title>💕 Nuestra historia</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #050505;
-    color: white;
-    min-height: 100vh;
-    overflow-x: hidden;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#fff7fb;
+    color:#4b3440;
+    overflow-x:hidden;
+}
+
+section{
+    position:relative;
+    padding:80px 20px;
+}
+
+.container{
+    max-width:950px;
+    margin:auto;
+}
+
+h1,h2,h3{
+    font-weight:800;
+}
+
+button{
+    font-family:inherit;
 }
 
 /* =========================
-   FONDO ANIMADO
+   FONDO
 ========================= */
 
-.background {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    z-index: -1;
+.background{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(120,80,255,.22), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(0,180,255,.18), transparent 30%),
-        #050505;
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd9ec 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ddd5ff 0,
+            transparent 25%
+        ),
+        #fff7fb;
 }
 
-.glow {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: .35;
-    animation: float 8s infinite alternate ease-in-out;
+/* =========================
+   CORAZONES
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+
+    font-size:25px;
+
+    animation:
+        floatHeart
+        linear
+        infinite;
+
+    opacity:.75;
+
+    pointer-events:none;
 }
 
-.glow.one {
-    background: #7c3aed;
-    top: -100px;
-    left: -100px;
+.heart:nth-child(1){
+    left:10%;
+    animation-duration:8s;
 }
 
-.glow.two {
-    background: #06b6d4;
-    right: -120px;
-    bottom: -100px;
-    animation-delay: 2s;
+.heart:nth-child(2){
+    left:30%;
+    animation-duration:11s;
+    animation-delay:2s;
 }
 
-@keyframes float {
-    from {
-        transform: translate(0,0);
+.heart:nth-child(3){
+    left:55%;
+    animation-duration:9s;
+    animation-delay:1s;
+}
+
+.heart:nth-child(4){
+    left:80%;
+    animation-duration:12s;
+    animation-delay:3s;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0);
+        opacity:0;
     }
 
-    to {
-        transform: translate(70px,40px);
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity:0;
     }
 }
 
@@ -74,373 +145,796 @@ body {
    PORTADA
 ========================= */
 
-#cover {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    animation: fadeIn 1.2s ease;
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px;
 }
 
-.cover-card {
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    padding: 45px 30px;
-    border-radius: 30px;
+.hero-card{
+    max-width:650px;
+}
 
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.12);
+.kawaii{
+    font-size:75px;
 
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    animation:
+        bounce
+        2.5s
+        infinite;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0)
+                   rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-15px)
+                   rotate(3deg);
+    }
+}
+
+.small-title{
+    display:inline-block;
+
+    background:#ffe1ef;
+
+    color:#d95b91;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:
+        clamp(42px,9vw,75px);
+
+    line-height:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff6fa9,
+            #b98cff,
+            #ff83b9
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:19px;
+
+    color:#876875;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+}
+
+.start{
+    display:inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff75ac,
+            #b889ff
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 28px;
+
+    border-radius:50px;
+
+    font-weight:800;
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.5),
-        inset 0 1px rgba(255,255,255,.1);
+        0 12px 30px
+        rgba(220,100,160,.3);
 
-    animation: cardAppear 1s cubic-bezier(.2,.8,.2,1);
+    transition:.3s;
 }
 
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(50px) scale(.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.document-icon {
-    width: 110px;
-    height: 140px;
-    margin: auto auto 30px;
-
-    border-radius: 18px;
-
-    background: linear-gradient(
-        145deg,
-        #ffffff,
-        #dfe4ff
-    );
-
-    color: #111;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 55px;
-
-    box-shadow:
-        0 20px 50px rgba(100,80,255,.35);
-
-    animation: levitate 3s infinite ease-in-out;
-}
-
-@keyframes levitate {
-    0%,100% {
-        transform: translateY(0) rotate(-2deg);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(2deg);
-    }
-}
-
-.badge {
-    display: inline-block;
-
-    padding: 7px 14px;
-
-    border-radius: 50px;
-
-    background: rgba(255,255,255,.1);
-
-    border: 1px solid rgba(255,255,255,.15);
-
-    font-size: 12px;
-
-    margin-bottom: 15px;
-
-    color: #ddd;
-}
-
-h1 {
-    font-size: clamp(28px, 7vw, 42px);
-    margin-bottom: 12px;
-
-    background: linear-gradient(
-        90deg,
-        #fff,
-        #b7b7ff,
-        #8de7ff
-    );
-
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.description {
-    color: #aaa;
-    line-height: 1.6;
-    margin-bottom: 30px;
+.start:hover{
+    transform:
+        translateY(-4px)
+        scale(1.03);
 }
 
 /* =========================
-   BOTÓN
+   TITULOS
 ========================= */
 
-.open-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.section-title{
+    text-align:center;
 
-    width: 100%;
+    margin-bottom:45px;
+}
 
-    padding: 17px;
+.section-title span{
+    display:block;
 
-    border-radius: 16px;
+    font-size:13px;
 
-    background: linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb
-    );
+    color:#d26a99;
 
-    color: white;
+    margin-bottom:8px;
+}
 
-    font-size: 16px;
-    font-weight: 700;
+.section-title h2{
+    font-size:
+        clamp(30px,6vw,48px);
 
-    text-decoration: none;
+    color:#5a3d4b;
+}
 
-    border: none;
+.section-title p{
+    margin-top:10px;
 
-    cursor: pointer;
+    color:#967b87;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.letter{
+    background:white;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:25px;
 
     box-shadow:
-        0 15px 35px rgba(90,70,255,.35);
+        0 20px 60px
+        rgba(180,100,140,.12);
 
-    transition: .3s;
+    border:
+        2px dashed #f3bfd7;
+
+    position:relative;
 }
 
-.open-button:hover {
-    transform: translateY(-3px);
+.letter:before{
+    content:"💌";
+
+    position:absolute;
+
+    top:-30px;
+    right:30px;
+
+    font-size:55px;
+
+    transform:rotate(10deg);
+}
+
+.letter p{
+    line-height:1.9;
+
+    margin-bottom:15px;
+
+    font-size:16px;
+}
+
+/* =========================
+   FOTOS
+========================= */
+
+.photos{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:25px;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.photo{
+    background:white;
+
+    padding:12px 12px 25px;
+
     box-shadow:
-        0 20px 45px rgba(90,70,255,.5);
+        0 12px 30px
+        rgba(100,60,80,.15);
+
+    transition:.4s;
+
+    border-radius:4px;
 }
 
-.open-button:active {
-    transform: scale(.97);
+.photo:nth-child(1){
+    transform:rotate(-4deg);
 }
 
-.nfc {
-    margin-top: 25px;
-    color: #777;
-    font-size: 12px;
+.photo:nth-child(2){
+    transform:rotate(3deg);
+}
+
+.photo:nth-child(3){
+    transform:rotate(-2deg);
+}
+
+.photo:hover{
+    transform:
+        rotate(0)
+        translateY(-10px)
+        scale(1.03);
+}
+
+.photo img{
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#ffe8f2;
+}
+
+.photo p{
+    text-align:center;
+
+    margin-top:15px;
+
+    font-family:
+        "Comic Sans MS",
+        cursive;
+
+    color:#765563;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    max-width:700px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+
+    position:absolute;
+
+    left:20px;
+
+    top:0;
+    bottom:0;
+
+    width:3px;
+
+    background:
+        linear-gradient(
+            #ff9fc4,
+            #b99aff
+        );
+}
+
+.event{
+    position:relative;
+
+    margin-bottom:35px;
+
+    padding-left:60px;
+}
+
+.event .dot{
+    position:absolute;
+
+    left:7px;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:5px solid #ff9fc4;
+
+    z-index:1;
+}
+
+.event-card{
+    background:white;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(150,90,120,.1);
+}
+
+.event-card h3{
+    color:#d45e91;
+
+    margin-bottom:7px;
+}
+
+.event-card p{
+    color:#806a74;
+
+    line-height:1.6;
 }
 
 /* =========================
    PDF
 ========================= */
 
-#pdfPage {
-    display: none;
-    min-height: 100vh;
-    padding: 15px;
-    animation: fadeIn .7s ease;
+.pdf-box{
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100,60,90,.15);
+
+    max-width:900px;
+
+    margin:auto;
 }
 
-.pdf-header {
-    max-width: 1100px;
-    margin: auto;
+.pdf-box iframe{
+    width:100%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height:650px;
 
-    margin-bottom: 15px;
+    border:none;
+
+    display:block;
 }
 
-.pdf-title {
-    font-size: 20px;
-    font-weight: 700;
-}
+.pdf-button{
+    display:block;
 
-.back-button {
-    border: none;
-    background: rgba(255,255,255,.1);
-    color: white;
+    margin:15px;
 
-    padding: 10px 15px;
+    text-align:center;
 
-    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            #ff76ad,
+            #a886ff
+        );
 
-    cursor: pointer;
-}
+    color:white;
 
-.pdf-container {
-    max-width: 1100px;
-    margin: auto;
+    padding:15px;
 
-    background: white;
+    border-radius:15px;
 
-    border-radius: 18px;
+    text-decoration:none;
 
-    overflow: hidden;
-
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
-}
-
-iframe {
-    width: 100%;
-    height: 78vh;
-
-    min-height: 500px;
-
-    border: none;
-
-    display: block;
-}
-
-.actions {
-    display: flex;
-    gap: 10px;
-
-    padding: 12px;
-
-    background: white;
-}
-
-.action {
-    flex: 1;
-
-    padding: 13px;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    font-size: 14px;
-}
-
-.open {
-    background: #111827;
-    color: white;
-}
-
-.download {
-    background: #eef0f5;
-    color: #111;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    font-weight:800;
 }
 
 /* =========================
-   MÓVIL
+   FINAL
 ========================= */
 
-@media(max-width:600px) {
+.final{
+    min-height:80vh;
 
-    #cover {
-        padding: 15px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.final-content{
+    max-width:650px;
+}
+
+.final-heart{
+    font-size:90px;
+
+    animation:
+        heartbeat
+        1.4s
+        infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
     }
 
-    .cover-card {
-        padding: 40px 22px;
+    15%{
+        transform:scale(1.15);
     }
 
-    .document-icon {
-        width: 90px;
-        height: 115px;
-        font-size: 45px;
+    30%{
+        transform:scale(1);
     }
 
-    #pdfPage {
-        padding: 8px;
-    }
-
-    .pdf-title {
-        font-size: 16px;
-    }
-
-    iframe {
-        height: 75vh;
-        min-height: 450px;
-    }
-
-    .actions {
-        flex-direction: column;
+    45%{
+        transform:scale(1.12);
     }
 }
+
+.final h2{
+    font-size:
+        clamp(35px,7vw,60px);
+
+    color:#d65d91;
+
+    margin:20px 0;
+}
+
+.final p{
+    font-size:19px;
+
+    line-height:1.7;
+
+    color:#856c78;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:65px 15px;
+    }
+
+    .photos{
+        grid-template-columns:1fr;
+
+        max-width:350px;
+    }
+
+    .photo{
+        transform:none !important;
+    }
+
+    .letter{
+        padding:28px 22px;
+    }
+
+    .pdf-box iframe{
+        height:500px;
+    }
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="background">
-    <div class="glow one"></div>
-    <div class="glow two"></div>
-</div>
+
+<!-- FONDO -->
+
+<div class="background"></div>
+
+<div class="heart">💕</div>
+<div class="heart">💗</div>
+<div class="heart">💖</div>
+<div class="heart">💞</div>
 
 
 <!-- =========================
      PORTADA
 ========================= -->
 
-<section id="cover">
+<section class="hero">
 
-    <div class="cover-card">
+<div class="hero-card">
 
-        <div class="document-icon">
-            📄
-        </div>
+    <div class="kawaii">
+        🧸💕
+    </div>
 
-        <div class="badge">
-            ✦ DOCUMENTO DIGITAL
-        </div>
+    <div class="small-title">
+        ✨ HECHO ESPECIALMENTE PARA TI ✨
+    </div>
 
-        <h1>
-            Tu documento
-        </h1>
+    <h1>
+        Nuestra historia
+    </h1>
 
-        <p class="description">
-            Accede al documento directamente desde tu dispositivo.
-            Toca el botón para comenzar.
-        </p>
+    <p>
+        Un pequeño lugar donde guardar
+        todos esos momentos que hacen
+        que nuestra historia sea nuestra.
+        💗
+    </p>
 
-        <button
-            class="open-button"
-            onclick="openPDF()">
+    <a
+        href="#inicio"
+        class="start">
 
-            📖
-            Abrir documento
+        💌 Empezar nuestra historia
 
-        </button>
+    </a>
 
-        <p class="nfc">
-            📡 Acceso mediante tecnología NFC
+</div>
+
+</section>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section id="inicio">
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>💗 PARA TI</span>
+
+    <h2>
+        Hola, mi niña
+    </h2>
+
+    <p>
+        Tengo algo que enseñarte...
+    </p>
+
+</div>
+
+
+<div class="letter">
+
+<p>
+    Si estás leyendo esto es porque
+    acabas de encontrar nuestro pequeño
+    rincón secreto. 🥹
+</p>
+
+<p>
+    Aquí he querido guardar algunos de
+    nuestros momentos, recuerdos y
+    pequeñas cosas que hacen especial
+    nuestra historia.
+</p>
+
+<p>
+    Porque puede que para otras personas
+    sean simplemente fotos o fechas,
+    pero para mí significan muchísimo.
+    💕
+</p>
+
+<p>
+    Gracias por formar parte de mi vida.
+</p>
+
+<p>
+    <strong>
+        Te quiero muchísimo ❤️
+    </strong>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOTOS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>📸 NUESTROS RECUERDOS</span>
+
+    <h2>
+        Momentitos 💕
+    </h2>
+
+    <p>
+        Algunos de mis recuerdos favoritos contigo.
+    </p>
+
+</div>
+
+
+<div class="photos">
+
+    <div class="photo">
+
+        <img src="foto1.jpg">
+
+        <p>
+            Nuestro momento 🥰
         </p>
 
     </div>
+
+
+    <div class="photo">
+
+        <img src="foto2.jpg">
+
+        <p>
+            Tú y yo 💗
+        </p>
+
+    </div>
+
+
+    <div class="photo">
+
+        <img src="foto3.jpg">
+
+        <p>
+            Un recuerdo para siempre ✨
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>🗓️ NUESTRA HISTORIA</span>
+
+    <h2>
+        Desde el principio
+    </h2>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            💕 El principio
+        </h3>
+
+        <p>
+            Aquí puedes poner cómo os
+            conocisteis y qué pensaste
+            la primera vez que la viste.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            🥰 Nuestro primer momento
+        </h3>
+
+        <p>
+            Escribe aquí vuestro primer
+            recuerdo especial.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            💗 Un momento inolvidable
+        </h3>
+
+        <p>
+            Cuenta aquí uno de esos
+            momentos que nunca quieres
+            olvidar.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            ✨ Y seguimos escribiendo
+        </h3>
+
+        <p>
+            Porque nuestra historia todavía
+            tiene muchísimos capítulos.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -449,91 +943,90 @@ iframe {
      PDF
 ========================= -->
 
-<section id="pdfPage">
+<section>
 
-    <div class="pdf-header">
+<div class="container">
 
-        <div class="pdf-title">
-            📄 Tu documento
-        </div>
+<div class="section-title">
 
-        <button
-            class="back-button"
-            onclick="closePDF()">
+    <span>📖 NUESTRO RECUERDO</span>
 
-            ← Volver
+    <h2>
+        Una parte de nuestra historia
+    </h2>
 
-        </button>
+    <p>
+        Y aquí está el documento que
+        quería guardar para ti.
+    </p>
 
-    </div>
+</div>
 
 
-    <div class="pdf-container">
+<div class="pdf-box">
 
-        <iframe
-            src="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/preview"
-            allow="autoplay">
-        </iframe>
+    <iframe
+        src="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/preview"
+        allow="autoplay">
+    </iframe>
 
-        <div class="actions">
+    <a
+        class="pdf-button"
+        href="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/view"
+        target="_blank">
 
-            <a
-                class="action open"
-                href="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/view?usp=sharing"
-                target="_blank">
+        💗 Abrir el documento completo
 
-                🔍 Abrir PDF
+    </a>
 
-            </a>
+</div>
 
-            <a
-                class="action download"
-                href="https://drive.google.com/uc?export=download&id=13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt"
-                target="_blank">
-
-                ⬇️ Descargar
-
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<script>
+<!-- =========================
+     FINAL
+========================= -->
 
-function openPDF() {
+<section class="final">
 
-    document.getElementById("cover").style.display = "none";
+<div class="final-content">
 
-    document.getElementById("pdfPage").style.display = "block";
+    <div class="final-heart">
+        ❤️
+    </div>
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    <h2>
+        Esto no es el final...
+    </h2>
 
-}
+    <p>
+        Es solo una pequeña parte
+        de todo lo que nos queda por vivir,
+        descubrir y recordar juntos.
+    </p>
 
+    <br>
 
-function closePDF() {
+    <p>
+        <strong>
+            Te quiero, Lucía. 💕
+        </strong>
+    </p>
 
-    document.getElementById("pdfPage").style.display = "none";
+    <br>
 
-    document.getElementById("cover").style.display = "flex";
+    <p>
+        ∞
+    </p>
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+</div>
 
-}
+</section>
 
-</script>
 
 </body>
 </html>
-
 
