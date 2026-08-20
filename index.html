@@ -1,0 +1,539 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Documento Premium</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #050505;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   FONDO ANIMADO
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(120,80,255,.22), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(0,180,255,.18), transparent 30%),
+        #050505;
+}
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .35;
+    animation: float 8s infinite alternate ease-in-out;
+}
+
+.glow.one {
+    background: #7c3aed;
+    top: -100px;
+    left: -100px;
+}
+
+.glow.two {
+    background: #06b6d4;
+    right: -120px;
+    bottom: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(70px,40px);
+    }
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+#cover {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    animation: fadeIn 1.2s ease;
+}
+
+.cover-card {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 45px 30px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.1);
+
+    animation: cardAppear 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.document-icon {
+    width: 110px;
+    height: 140px;
+    margin: auto auto 30px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #dfe4ff
+    );
+
+    color: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    box-shadow:
+        0 20px 50px rgba(100,80,255,.35);
+
+    animation: levitate 3s infinite ease-in-out;
+}
+
+@keyframes levitate {
+    0%,100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.1);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+
+    color: #ddd;
+}
+
+h1 {
+    font-size: clamp(28px, 7vw, 42px);
+    margin-bottom: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #b7b7ff,
+        #8de7ff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.description {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.open-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 17px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 35px rgba(90,70,255,.35);
+
+    transition: .3s;
+}
+
+.open-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 20px 45px rgba(90,70,255,.5);
+}
+
+.open-button:active {
+    transform: scale(.97);
+}
+
+.nfc {
+    margin-top: 25px;
+    color: #777;
+    font-size: 12px;
+}
+
+/* =========================
+   PDF
+========================= */
+
+#pdfPage {
+    display: none;
+    min-height: 100vh;
+    padding: 15px;
+    animation: fadeIn .7s ease;
+}
+
+.pdf-header {
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.pdf-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.back-button {
+    border: none;
+    background: rgba(255,255,255,.1);
+    color: white;
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.pdf-container {
+    max-width: 1100px;
+    margin: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+iframe {
+    width: 100%;
+    height: 78vh;
+
+    min-height: 500px;
+
+    border: none;
+
+    display: block;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+
+    padding: 12px;
+
+    background: white;
+}
+
+.action {
+    flex: 1;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+.open {
+    background: #111827;
+    color: white;
+}
+
+.download {
+    background: #eef0f5;
+    color: #111;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media(max-width:600px) {
+
+    #cover {
+        padding: 15px;
+    }
+
+    .cover-card {
+        padding: 40px 22px;
+    }
+
+    .document-icon {
+        width: 90px;
+        height: 115px;
+        font-size: 45px;
+    }
+
+    #pdfPage {
+        padding: 8px;
+    }
+
+    .pdf-title {
+        font-size: 16px;
+    }
+
+    iframe {
+        height: 75vh;
+        min-height: 450px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section id="cover">
+
+    <div class="cover-card">
+
+        <div class="document-icon">
+            📄
+        </div>
+
+        <div class="badge">
+            ✦ DOCUMENTO DIGITAL
+        </div>
+
+        <h1>
+            Tu documento
+        </h1>
+
+        <p class="description">
+            Accede al documento directamente desde tu dispositivo.
+            Toca el botón para comenzar.
+        </p>
+
+        <button
+            class="open-button"
+            onclick="openPDF()">
+
+            📖
+            Abrir documento
+
+        </button>
+
+        <p class="nfc">
+            📡 Acceso mediante tecnología NFC
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PDF
+========================= -->
+
+<section id="pdfPage">
+
+    <div class="pdf-header">
+
+        <div class="pdf-title">
+            📄 Tu documento
+        </div>
+
+        <button
+            class="back-button"
+            onclick="closePDF()">
+
+            ← Volver
+
+        </button>
+
+    </div>
+
+
+    <div class="pdf-container">
+
+        <iframe
+            src="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/preview"
+            allow="autoplay">
+        </iframe>
+
+        <div class="actions">
+
+            <a
+                class="action open"
+                href="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/view"
+                target="_blank">
+
+                🔍 Abrir PDF
+
+            </a>
+
+            <a
+                class="action download"
+                href="https://drive.google.com/uc?export=download&id=13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt"
+                target="_blank">
+
+                ⬇️ Descargar
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function openPDF() {
+
+    document.getElementById("cover").style.display = "none";
+
+    document.getElementById("pdfPage").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+function closePDF() {
+
+    document.getElementById("pdfPage").style.display = "none";
+
+    document.getElementById("cover").style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+
+
