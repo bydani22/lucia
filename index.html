@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💕 Nuestra historia</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#fff7fb;
+    color:#4b3440;
+    overflow-x:hidden;
+}
+
+section{
+    position:relative;
+    padding:80px 20px;
+}
+
+.container{
+    max-width:950px;
+    margin:auto;
+}
+
+h1,h2,h3{
+    font-weight:800;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================
+   FONDO
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd9ec 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ddd5ff 0,
+            transparent 25%
+        ),
+        #fff7fb;
+}
+
+/* =========================
+   CORAZONES
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+
+    font-size:25px;
+
+    animation:
+        floatHeart
+        linear
+        infinite;
+
+    opacity:.75;
+
+    pointer-events:none;
+}
+
+.heart:nth-child(1){
+    left:10%;
+    animation-duration:8s;
+}
+
+.heart:nth-child(2){
+    left:30%;
+    animation-duration:11s;
+    animation-delay:2s;
+}
+
+.heart:nth-child(3){
+    left:55%;
+    animation-duration:9s;
+    animation-delay:1s;
+}
+
+.heart:nth-child(4){
+    left:80%;
+    animation-duration:12s;
+    animation-delay:3s;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.hero-card{
+    max-width:650px;
+}
+
+.kawaii{
+    font-size:75px;
+
+    animation:
+        bounce
+        2.5s
+        infinite;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0)
+                   rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-15px)
+                   rotate(3deg);
+    }
+}
+
+.small-title{
+    display:inline-block;
+
+    background:#ffe1ef;
+
+    color:#d95b91;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:
+        clamp(42px,9vw,75px);
+
+    line-height:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff6fa9,
+            #b98cff,
+            #ff83b9
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:19px;
+
+    color:#876875;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+}
+
+.start{
+    display:inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff75ac,
+            #b889ff
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 28px;
+
+    border-radius:50px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 12px 30px
+        rgba(220,100,160,.3);
+
+    transition:.3s;
+}
+
+.start:hover{
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+/* =========================
+   TITULOS
+========================= */
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.section-title span{
+    display:block;
+
+    font-size:13px;
+
+    color:#d26a99;
+
+    margin-bottom:8px;
+}
+
+.section-title h2{
+    font-size:
+        clamp(30px,6vw,48px);
+
+    color:#5a3d4b;
+}
+
+.section-title p{
+    margin-top:10px;
+
+    color:#967b87;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.letter{
+    background:white;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(180,100,140,.12);
+
+    border:
+        2px dashed #f3bfd7;
+
+    position:relative;
+}
+
+.letter:before{
+    content:"💌";
+
+    position:absolute;
+
+    top:-30px;
+    right:30px;
+
+    font-size:55px;
+
+    transform:rotate(10deg);
+}
+
+.letter p{
+    line-height:1.9;
+
+    margin-bottom:15px;
+
+    font-size:16px;
+}
+
+/* =========================
+   FOTOS
+========================= */
+
+.photos{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:25px;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.photo{
+    background:white;
+
+    padding:12px 12px 25px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(100,60,80,.15);
+
+    transition:.4s;
+
+    border-radius:4px;
+}
+
+.photo:nth-child(1){
+    transform:rotate(-4deg);
+}
+
+.photo:nth-child(2){
+    transform:rotate(3deg);
+}
+
+.photo:nth-child(3){
+    transform:rotate(-2deg);
+}
+
+.photo:hover{
+    transform:
+        rotate(0)
+        translateY(-10px)
+        scale(1.03);
+}
+
+.photo img{
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#ffe8f2;
+}
+
+.photo p{
+    text-align:center;
+
+    margin-top:15px;
+
+    font-family:
+        "Comic Sans MS",
+        cursive;
+
+    color:#765563;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    max-width:700px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+
+    position:absolute;
+
+    left:20px;
+
+    top:0;
+    bottom:0;
+
+    width:3px;
+
+    background:
+        linear-gradient(
+            #ff9fc4,
+            #b99aff
+        );
+}
+
+.event{
+    position:relative;
+
+    margin-bottom:35px;
+
+    padding-left:60px;
+}
+
+.event .dot{
+    position:absolute;
+
+    left:7px;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:5px solid #ff9fc4;
+
+    z-index:1;
+}
+
+.event-card{
+    background:white;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(150,90,120,.1);
+}
+
+.event-card h3{
+    color:#d45e91;
+
+    margin-bottom:7px;
+}
+
+.event-card p{
+    color:#806a74;
+
+    line-height:1.6;
+}
+
+/* =========================
+   PDF
+========================= */
+
+.pdf-box{
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100,60,90,.15);
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.pdf-box iframe{
+    width:100%;
+
+    height:650px;
+
+    border:none;
+
+    display:block;
+}
+
+.pdf-button{
+    display:block;
+
+    margin:15px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff76ad,
+            #a886ff
+        );
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    font-weight:800;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    min-height:80vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.final-content{
+    max-width:650px;
+}
+
+.final-heart{
+    font-size:90px;
+
+    animation:
+        heartbeat
+        1.4s
+        infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.15);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+    45%{
+        transform:scale(1.12);
+    }
+}
+
+.final h2{
+    font-size:
+        clamp(35px,7vw,60px);
+
+    color:#d65d91;
+
+    margin:20px 0;
+}
+
+.final p{
+    font-size:19px;
+
+    line-height:1.7;
+
+    color:#856c78;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:65px 15px;
+    }
+
+    .photos{
+        grid-template-columns:1fr;
+
+        max-width:350px;
+    }
+
+    .photo{
+        transform:none !important;
+    }
+
+    .letter{
+        padding:28px 22px;
+    }
+
+    .pdf-box iframe{
+        height:500px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- FONDO -->
+
+<div class="background"></div>
+
+<div class="heart">💕</div>
+<div class="heart">💗</div>
+<div class="heart">💖</div>
+<div class="heart">💞</div>
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section class="hero">
+
+<div class="hero-card">
+
+    <div class="kawaii">
+        🧸💕
+    </div>
+
+    <div class="small-title">
+        ✨ HECHO ESPECIALMENTE PARA TI ✨
+    </div>
+
+    <h1>
+        Nuestra historia
+    </h1>
+
+    <p>
+        Un pequeño lugar donde guardar
+        todos esos momentos que hacen
+        que nuestra historia sea nuestra.
+        💗
+    </p>
+
+    <a
+        href="#inicio"
+        class="start">
+
+        💌 Empezar nuestra historia
+
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section id="inicio">
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>💗 PARA TI</span>
+
+    <h2>
+        Hola, mi niña
+    </h2>
+
+    <p>
+        Tengo algo que enseñarte...
+    </p>
+
+</div>
+
+
+<div class="letter">
+
+<p>
+    Si estás leyendo esto es porque
+    acabas de encontrar nuestro pequeño
+    rincón secreto. 🥹
+</p>
+
+<p>
+    Aquí he querido guardar algunos de
+    nuestros momentos, recuerdos y
+    pequeñas cosas que hacen especial
+    nuestra historia.
+</p>
+
+<p>
+    Porque puede que para otras personas
+    sean simplemente fotos o fechas,
+    pero para mí significan muchísimo.
+    💕
+</p>
+
+<p>
+    Gracias por formar parte de mi vida.
+</p>
+
+<p>
+    <strong>
+        Te quiero muchísimo ❤️
+    </strong>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOTOS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>📸 NUESTROS RECUERDOS</span>
+
+    <h2>
+        Momentitos 💕
+    </h2>
+
+    <p>
+        Algunos de mis recuerdos favoritos contigo.
+    </p>
+
+</div>
+
+
+<div class="photos">
+
+    <div class="photo">
+
+        <img src="foto1.jpg">
+
+        <p>
+            Nuestro momento 🥰
+        </p>
+
+    </div>
+
+
+    <div class="photo">
+
+        <img src="foto2.jpg">
+
+        <p>
+            Tú y yo 💗
+        </p>
+
+    </div>
+
+
+    <div class="photo">
+
+        <img src="foto3.jpg">
+
+        <p>
+            Un recuerdo para siempre ✨
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>🗓️ NUESTRA HISTORIA</span>
+
+    <h2>
+        Desde el principio
+    </h2>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            💕 El principio
+        </h3>
+
+        <p>
+            Aquí puedes poner cómo os
+            conocisteis y qué pensaste
+            la primera vez que la viste.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            🥰 Nuestro primer momento
+        </h3>
+
+        <p>
+            Escribe aquí vuestro primer
+            recuerdo especial.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            💗 Un momento inolvidable
+        </h3>
+
+        <p>
+            Cuenta aquí uno de esos
+            momentos que nunca quieres
+            olvidar.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="event">
+
+    <div class="dot"></div>
+
+    <div class="event-card">
+
+        <h3>
+            ✨ Y seguimos escribiendo
+        </h3>
+
+        <p>
+            Porque nuestra historia todavía
+            tiene muchísimos capítulos.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PDF
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>📖 NUESTRO RECUERDO</span>
+
+    <h2>
+        Una parte de nuestra historia
+    </h2>
+
+    <p>
+        Y aquí está el documento que
+        quería guardar para ti.
+    </p>
+
+</div>
+
+
+<div class="pdf-box">
+
+    <iframe
+        src="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/preview"
+        allow="autoplay">
+    </iframe>
+
+    <a
+        class="pdf-button"
+        href="https://drive.google.com/file/d/13IgcFymJ-jF8xLRdsBNJJ3y22b98NvXt/view"
+        target="_blank">
+
+        💗 Abrir el documento completo
+
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+<div class="final-content">
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <h2>
+        Esto no es el final...
+    </h2>
+
+    <p>
+        Es solo una pequeña parte
+        de todo lo que nos queda por vivir,
+        descubrir y recordar juntos.
+    </p>
+
+    <br>
+
+    <p>
+        <strong>
+            Te quiero, Lucía. 💕
+        </strong>
+    </p>
+
+    <br>
+
+    <p>
+        ∞
+    </p>
+
+</div>
+
+</section>
+
+
+</body>
+</html>
+
